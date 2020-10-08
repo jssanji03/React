@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
 function App() {
+  //total-呈現的 setTotal-相當於要執行的function  useState-初始狀態值
+  const [total, setTotal] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <h1>{total}</h1>
+      <button onClick={() => setTotal(total + 1)}>+1</button>
+      <button onClick={() => setTotal(total - 1)}>-1</button>
+    </>
+  )
 }
 
-export default App;
+export default App
