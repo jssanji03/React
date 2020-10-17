@@ -1,23 +1,32 @@
-// 導入React模組 必要！  { useState }使用狀態{}為部分導入
-import React, { useState } from 'react'
-
-import MyButtonOne from './components/MyButtonOne'
-//導入要使用的元件程式，注意路徑要正確，不需加副檔名
-import MyButtonTwo from './components/MyButtonTwo'
+// 導入其它的模組
+import React, { useState, useEffect } from 'react'
+import MyNavbar from './components/MyNavbar'
+import TodoApp from './components/TodoApp'
+import MyFooter from './components/MyFooter'
+import MainContent from './components/MainContent'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import TodoAppPage from './pages/TodoAppPage'
+import Home from './pages/Home'
 
 function App() {
-  const [show, setShow] = useState(true)
   return (
-    <>
-      {/* <h1>0</h1> */}
-      <MyButtonOne title="復活吧" clickMethod={() => setShow(true)} />
-      {show ? (
-        <MyButtonTwo title="我不要活了" clickMethod={() => setShow(true)} />
-      ) : (
-        ' '
-      )}
-    </>
+    <Router>
+      <>
+        <MyNavbar />
+        <MainContent>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </MainContent>
+        <MyFooter />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/todo" component={TodoAppPage} />
+        </Switch>
+      </>
+    </Router>
   )
 }
-//輸出元件(函式)
+
+// 輸出元件(函式)
+
 export default App

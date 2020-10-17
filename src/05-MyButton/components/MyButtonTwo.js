@@ -6,7 +6,7 @@ function MyButtonTwo(props) {
 
   return (
     <>
-      <button>Two</button>
+      <button onClick={props.clickMethod}>{props.title}</button>
     </>
   )
 }

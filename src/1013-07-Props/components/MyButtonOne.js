@@ -2,11 +2,10 @@
 import React, { useState } from 'react'
 
 function MyButtonOne(props) {
-  console.log(props)
-
   return (
     <>
-      <button onClick={props.clickMethod}>{props.title}</button>
+      <h1>{props.text}</h1>
+      <button onClick={props.onClick}>{props.title}</button>
     </>
   )
 }

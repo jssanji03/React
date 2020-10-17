@@ -2,11 +2,11 @@
 import React, { useState } from 'react'
 
 function MyButtonOne(props) {
-  console.log(props)
+  const innerValue = 200
 
   return (
     <>
-      <button onClick={props.clickMethod}>{props.title}</button>
+      <button onClick={() => props.setNum(innerValue)}>{props.title}</button>
     </>
   )
 }

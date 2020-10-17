@@ -3,14 +3,13 @@ import React, { useState } from 'react'
 
 import MyButtonOne from './components/MyButtonOne'
 //導入要使用的元件程式，注意路徑要正確，不需加副檔名
-import MyButtonTwo from './components/MyButtonTwo'
 
-function App() {
+function App(props) {
+  const [num, setNum] = useState(0)
   return (
     <>
-      <h1>0</h1>
-      <MyButtonOne title="復活吧" />
-      <MyButtonTwo title="我不要活了" />
+      <h1>{num}</h1>
+      <MyButtonOne title="傳資料" setNum={setNum} />
     </>
   )
 }

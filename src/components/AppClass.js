@@ -35,14 +35,4 @@ class AppClass extends React.Component {
   }
 }
 
-AppClass.propTypes = {
-  initValue: PropTypes.number,
-  title: PropTypes.string,
-}
-
-AppClass.defaultProps = {
-  initValue: 0,
-  title: '沒標題',
-}
-
 export default AppClass

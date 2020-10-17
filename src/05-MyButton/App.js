@@ -6,11 +6,19 @@ import MyButtonOne from './components/MyButtonOne'
 import MyButtonTwo from './components/MyButtonTwo'
 
 function App() {
+  const [show, setShow] = useState(true)
   return (
     <>
-      <h1>0</h1>
-      <MyButtonOne title="復活吧" />
-      <MyButtonTwo title="我不要活了" />
+      {/* <h1>0</h1> */}
+      <MyButtonOne title="復活吧" clickMethod={() => setShow(true)} />
+      {show ? (
+        <MyButtonTwo title="我不要活了" clickMethod={() => setShow(true)} />
+      ) : (
+        ' '
+      )}
+      {/* {show && (
+        <MyButtonTwo title="我不要活了" clickMethod={() => setShow(true)} />
+      ) } */}
     </>
   )
 }
