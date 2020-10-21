@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import MyNavbar from './components2/MyNavbar'
 import MyFooter from './components2/MyFooter'
@@ -30,23 +29,11 @@ function App() {
   const [authUserAccount, setAuthUserAccount] = useState('')
   const [authPassword, setAuthPassword] = useState('')
 
-=======
-
-import MyNavbar from './components/MyNavbar'
-import MyFooter from './components/MyFooter'
-import MainContent from './components/MainContent'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-
-import Counter from './pages/Counter'
-
-function App() {
->>>>>>> master
   return (
     <Router>
       <>
         <MyNavbar />
         <MainContent>
-<<<<<<< HEAD
           {/* <Link to="/">Home</Link>
           <Link to="/about">About</Link> */}
           <MyFooter />
@@ -102,16 +89,6 @@ function App() {
             </Route>
           </Switch>
         </MainContent>
-=======
-          <Switch>
-            {/* 注意：要加上網址參數 */}
-            <Route exact path="/">
-              <Counter />
-            </Route>
-          </Switch>
-        </MainContent>
-        <MyFooter />
->>>>>>> master
       </>
     </Router>
   )

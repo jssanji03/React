@@ -1,43 +1,54 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import { Spinner } from 'react-bootstrap'
 
 function Counter(props) {
-  //const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(0)
+  const [dataLoading, setDataLoading] = useState(false)
 
-  //觀察props裡的得到的store對應和方法
-  console.log(props)
+  async function getTotalFromServer() {
+    //
+    setDataLoading(true)
 
-  return (
+    const url = 'http://localhost:5555/counter/1'
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+
+    setTotal(data.total)
+  }
+
+  // componentDidMount
+  useEffect(() => {
+    getTotalFromServer()
+  }, [])
+
+  // 每次total資料有改變，2秒後關起載入指示
+  useEffect(() => {
+    setTimeout(() => setDataLoading(false), 2000)
+  }, [total])
+
+  const loading = (
+    <Spinner animation="border" role="status">
+      <span className="sr-only">Loading...</span>
+    </Spinner>
+  )
+  const display = (
     <>
-      <h1>{props.total}</h1>
-      <button
-        onClick={() => {
-          // 改用dispatch發送動作，改變redux裡的store中記錄的state值
-          props.dispatch({ type: 'ADD_VALUE', value: 1 })
-        }}
-      >
-        +1
-      </button>
-      <button
-        onClick={() => {
-          // 改用dispatch發送動作，改變redux裡的store中記錄的state值
-          props.dispatch({ type: 'MINUS_VALUE', value: 1 })
-        }}
-      >
-        -1
-      </button>
+      <h2>{total}</h2>
+      <button>+1</button>
+      <button>-1</button>
     </>
   )
+  return dataLoading ? loading : display
 }
 
-// 將redux中的store的state(狀態)
-// 對應到這個元件中的props中，名稱為total
-const mapStateToProps = (store) => {
-  return { total: store.counter }
-}
-
-// 不使用這個值，略過後自動綁定store的dispatch方法到這個元件的props
-const mapDispatchToProps = null
-
-// 高階元件的樣式，必要的
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default Counter

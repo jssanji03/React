@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { InputGroup, FormControl } from 'react-bootstrap'
-import StarRating from '../items/StarRating'
+// import StarRating from '../items/StarRating'
 
 function TodoInput(props) {
   const { todoInput, setTodoInput, todos, setTodos } = props
