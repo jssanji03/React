@@ -11,4 +11,6 @@ function MainContent(props) {
   )
 }
 
+// 輸出元件(函式)
+
 export default MainContent

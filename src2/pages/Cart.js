@@ -6,9 +6,9 @@ function Cart() {
   const [mycartDisplay, setMycartDisplay] = useState([])
 
   function getCartFromLocalStorage() {
-    // 開啟載入的指示圖示
+    // 開啟載入的指示圖示 //基本樣式
     setDataLoading(true)
-
+    //localStorage是同步
     const newCart = localStorage.getItem('cart') || '[]'
 
     console.log(JSON.parse(newCart))

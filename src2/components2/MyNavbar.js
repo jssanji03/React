@@ -15,10 +15,12 @@ function MyNavbar(props) {
         variant="dark"
         fixed="top"
       >
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home" style={{ fontSize: '1.5rem' }}>
+          React-Bootstrap
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="mr-auto linktitle">
             {/* 把Nav.Link作為NavLink來使用 */}
             {/* 一定要加上exact，不然首頁會一直點亮(active) */}
             <Nav.Link as={NavLink} to="/" exact>

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Button, Form } from 'react-bootstrap'
+import 'antd/dist/antd.css'
+import { ShoppingCartOutlined } from '@ant-design/icons'
 
 function ProductList() {
   const loading = (
@@ -21,8 +24,10 @@ function ProductList() {
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title">iphone XS</h5>
-            <p className="card-text">
+            <h5 className="card-title" style={{ fontSize: '2rem' }}>
+              iphone XS
+            </h5>
+            <p className="card-text" style={{ fontSize: '1.5rem' }}>
               This is a longer card with supporting text below as a natural
               lead-in to additional content. This content is a little bit
               longer.
@@ -30,9 +35,24 @@ function ProductList() {
             <p className="card-text text-danger">NTD 15000元</p>
           </div>
           <div class="card-footer">
-            <button type="button" class="btn btn-success">
-              加入購物車
-            </button>
+            <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Label>Example select</Form.Label>
+              <Form.Control as="select">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </Form.Control>
+            </Form.Group>
+            <Button
+              variant="primary"
+              style={{ width: '10rem' }}
+              type="submit"
+              value={''}
+            >
+              <ShoppingCartOutlined />
+            </Button>
           </div>
         </div>
         <div className="card">
